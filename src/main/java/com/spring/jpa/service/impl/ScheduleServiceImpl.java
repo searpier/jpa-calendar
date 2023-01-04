@@ -23,15 +23,15 @@ public class ScheduleServiceImpl implements ScheduleService {
     public List<ScheduleResponse> scheduleLists(HttpSession session) {
 
         return scheduleRepository.findByUser(
-                User.builder()
-                        .email(String.valueOf(session.getAttribute("email")))
-                        .build()).stream()
+                        User.builder()
+                                .email(String.valueOf(session.getAttribute("email")))
+                                .build()).stream()
                 .map(schedule -> new ScheduleResponse(schedule))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public String insertSchedules(ScheduleRequest scheduleRequest,HttpSession session) {
+    public String insertSchedules(ScheduleRequest scheduleRequest, HttpSession session) {
         try {
             scheduleRepository.save(
                     Schedule.builder()
@@ -39,7 +39,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                             .title(scheduleRequest.getTitle())
                             .date(scheduleRequest.getDate())
                             .build());
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "failed";
         }
@@ -51,7 +51,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     public String deleteSchedules(String id) {
         try {
             scheduleRepository.deleteById(Long.valueOf(id));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "failed";
         }

@@ -14,9 +14,9 @@ public class ScheduleResponse {
     private String title;
     private String date;
 
-    public ScheduleResponse(Schedule schedule){
-        this.id=String.valueOf(schedule.getId());
-        this.title=schedule.getTitle();
-        this.date=schedule.getDate();
+    public ScheduleResponse(Schedule schedule) {
+        this.id = String.valueOf(schedule.getId());
+        this.title = schedule.getTitle();
+        this.date = schedule.getDate();
     }
 }

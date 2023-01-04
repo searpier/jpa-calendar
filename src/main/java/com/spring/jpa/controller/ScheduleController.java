@@ -16,17 +16,17 @@ public class ScheduleController {
     private final ScheduleService scheduleService;
 
     @GetMapping("/schedules")
-    public List<ScheduleResponse> scheduleLists(HttpSession session){
-        return scheduleService.scheduleLists( session);
+    public List<ScheduleResponse> scheduleLists(HttpSession session) {
+        return scheduleService.scheduleLists(session);
     }
 
     @PostMapping("/schedules")
-    public String insertSchedules(ScheduleRequest scheduleRequest,HttpSession session){
-        return scheduleService.insertSchedules(scheduleRequest,session);
+    public String insertSchedules(ScheduleRequest scheduleRequest, HttpSession session) {
+        return scheduleService.insertSchedules(scheduleRequest, session);
     }
 
     @DeleteMapping("/schedules/{id}")
-    public String deleteSchedules(@PathVariable("id") String id){
+    public String deleteSchedules(@PathVariable("id") String id) {
         return scheduleService.deleteSchedules(id);
     }
 

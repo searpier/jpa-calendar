@@ -18,10 +18,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String insertUsers(UserRequest userRequest) {
-        try{
+        try {
             userRepository.save(userRequest.toEntity());
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "failed";
         }
@@ -30,10 +30,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String loginUsers(UserRequest userRequest, HttpSession session) {
-        User loginUser=userRepository.findByEmailAndPassword(userRequest.getEmail(),userRequest.getPassword()).orElse(null);
-        session.setAttribute("email",loginUser.getEmail());
+        User loginUser = userRepository.findByEmailAndPassword(userRequest.getEmail(), userRequest.getPassword()).orElse(null);
+        session.setAttribute("email", loginUser.getEmail());
 
-        if(loginUser==null){
+        if (loginUser == null) {
             return "failed";
         }
         return "success";

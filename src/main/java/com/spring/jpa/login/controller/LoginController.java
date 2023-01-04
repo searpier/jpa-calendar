@@ -15,8 +15,8 @@ public class LoginController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public String loginUser(UserRequest request, HttpSession session){
-        return userService.loginUsers(request,session);
+    public String loginUser(UserRequest request, HttpSession session) {
+        return userService.loginUsers(request, session);
     }
 
 }

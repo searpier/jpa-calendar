@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
 
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     @GetMapping("/goLogin")
-    public String goLogin(){
+    public String goLogin() {
         return "login";
     }
 
     @GetMapping("/goSignUp")
-    public String goSignUp(){
+    public String goSignUp() {
         return "signup";
     }
 
     @GetMapping("/goCalendar")
-    public String goCalendar(){
+    public String goCalendar() {
         return "calendar";
     }
 

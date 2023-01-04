@@ -13,7 +13,7 @@ public class UserRequest {
     private String email;
     private String password;
 
-    public User toEntity(){
+    public User toEntity() {
         return User.builder()
                 .email(this.email)
                 .password(this.password)

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name="schedule_user")
+@Table(name = "schedule_user")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,10 +19,10 @@ import java.util.Set;
 public class User {
 
     @Id
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="schedule")
+@Table(name = "schedule")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,13 +16,16 @@ import javax.persistence.*;
 public class Schedule {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="title")
+
+    @Column(name = "title")
     private String title;
-    @Column(name="date")
+
+    @Column(name = "date")
     private String date;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "email", referencedColumnName = "email")
     private User user;

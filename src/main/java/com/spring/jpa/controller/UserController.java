@@ -12,7 +12,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/users")
-    public String insertUsers(UserRequest userRequest){
+    public String insertUsers(UserRequest userRequest) {
         return userService.insertUsers(userRequest);
     }
 
