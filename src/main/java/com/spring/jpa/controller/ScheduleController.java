@@ -17,12 +17,12 @@ public class ScheduleController {
 
     @GetMapping("/schedules")
     public List<ScheduleResponse> scheduleLists(HttpSession session) {
-        return scheduleService.scheduleLists(session);
+        return scheduleService.scheduleLists(String.valueOf(session.getAttribute("email")));
     }
 
     @PostMapping("/schedules")
     public String insertSchedules(ScheduleRequest scheduleRequest, HttpSession session) {
-        return scheduleService.insertSchedules(scheduleRequest, session);
+        return scheduleService.insertSchedules(scheduleRequest, String.valueOf(session.getAttribute("email")));
     }
 
     @DeleteMapping("/schedules/{id}")

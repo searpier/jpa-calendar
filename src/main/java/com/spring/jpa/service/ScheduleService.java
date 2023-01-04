@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ScheduleService {
 
-    List<ScheduleResponse> scheduleLists(HttpSession session);
+    List<ScheduleResponse> scheduleLists(String email);
 
-    String insertSchedules(ScheduleRequest scheduleRequest, HttpSession session);
+    String insertSchedules(ScheduleRequest scheduleRequest, String email);
 
     String deleteSchedules(String id);
 

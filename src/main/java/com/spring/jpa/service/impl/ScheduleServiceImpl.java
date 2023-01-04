@@ -20,22 +20,22 @@ public class ScheduleServiceImpl implements ScheduleService {
     private final ScheduleRepository scheduleRepository;
 
     @Override
-    public List<ScheduleResponse> scheduleLists(HttpSession session) {
+    public List<ScheduleResponse> scheduleLists(String email) {
 
         return scheduleRepository.findByUser(
                         User.builder()
-                                .email(String.valueOf(session.getAttribute("email")))
+                                .email(String.valueOf(email))
                                 .build()).stream()
                 .map(schedule -> new ScheduleResponse(schedule))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public String insertSchedules(ScheduleRequest scheduleRequest, HttpSession session) {
+    public String insertSchedules(ScheduleRequest scheduleRequest, String email) {
         try {
             scheduleRepository.save(
                     Schedule.builder()
-                            .user(User.builder().email(String.valueOf(session.getAttribute("email"))).build())
+                            .user(User.builder().email(email).build())
                             .title(scheduleRequest.getTitle())
                             .date(scheduleRequest.getDate())
                             .build());
