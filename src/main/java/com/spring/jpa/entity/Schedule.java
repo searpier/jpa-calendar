@@ -23,7 +23,7 @@ public class Schedule {
     private String title;
     @Column(name="date")
     private String date;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "email", referencedColumnName = "email")
     private User user;
 
