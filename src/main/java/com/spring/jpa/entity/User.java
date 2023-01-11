@@ -6,9 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "schedule_user")
@@ -26,6 +24,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<Schedule> scheduleList;
+    @OrderBy("date DESC")
+    private List<Schedule> scheduleList;
 
 }
